@@ -3,192 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Special Proposal❤️- By Jagrav</title>
-
+<title>Special Proposal❤️ - By Jagrav</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 body{
-    overflow:hidden;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-    height:100vh;
+height:100vh;overflow:hidden;
+background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#ffdde1,#ee9ca7);
+background-size:400% 400%;
+animation:bg 15s ease infinite;
+}
+@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.heart{position:absolute;color:#ff0066;animation:float 8s linear infinite}
+@keyframes float{from{transform:translateY(100vh)}to{transform:translateY(-120px);opacity:0}}
+
+#proposalPage,#yesPage{
+position:absolute;width:100%;height:100%;
+display:flex;justify-content:center;align-items:center;
+flex-direction:column;text-align:center;padding:20px;
+}
+#yesPage{display:none}
+
+.card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(12px);
+padding:35px;border-radius:25px;
+border:1px solid rgba(255,255,255,.3);
+max-width:900px;
 }
 
-/* Floating Hearts */
-.heart{
-    position:absolute;
-    color:#ff0066;
-    font-size:20px;
-    animation:float 8s linear infinite;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(100vh);
-        opacity:1;
-    }
-    to{
-        transform:translateY(-120px);
-        opacity:0;
-    }
-}
-
-#proposalPage,
-#yesPage{
-    position:absolute;
-    width:100%;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    padding:20px;
-}
-
-#yesPage{
-    display:none;
-}
-
-h1{
-    color:white;
-    font-size:3rem;
-    text-shadow:2px 2px 10px rgba(0,0,0,.3);
-}
-
-p{
-    color:white;
-    font-size:1.2rem;
-    margin-top:15px;
-}
-
-.buttons{
-    margin-top:30px;
-}
-
+h1,p,.message,.small{color:white}
+h1{font-size:3rem}
+.buttons{margin-top:25px}
 button{
-    border:none;
-    padding:15px 35px;
-    font-size:1.2rem;
-    border-radius:50px;
-    cursor:pointer;
-    margin:10px;
-    transition:.3s;
+border:none;padding:14px 28px;border-radius:50px;
+cursor:pointer;margin:8px;font-size:1.1rem
+}
+#yesBtn{background:#ff0066;color:white}
+#noBtn{background:white;color:#ff0066}
+
+.musicBtn{
+position:fixed;top:15px;right:15px;z-index:999;
 }
 
-#yesBtn{
-    background:#ff0066;
-    color:white;
+.slider-container{
+position:relative;
+width:340px;
+max-width:90vw;
+margin-bottom:20px;
 }
 
-#yesBtn:hover{
-    transform:scale(1.1);
+.slide{
+width:100%;
+height:450px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 0 25px rgba(255,255,255,.5);
 }
 
-#noBtn{
-    background:white;
-    color:#ff0066;
-    position:relative;
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(255,255,255,.8);
+border:none;
+width:40px;height:40px;
+border-radius:50%;
+cursor:pointer;
+font-size:20px;
 }
 
-img{
-    width:320px;
-    max-width:90%;
-    border-radius:20px;
-    box-shadow:0 0 30px rgba(255,255,255,.7);
-    margin-bottom:20px;
-}
+.left{left:-15px}
+.right{right:-15px}
 
 .message{
-    max-width:900px;
-    line-height:1.8;
-    font-size:1.3rem;
-    color:white;
+max-width:850px;
+line-height:1.8;
+font-size:1.1rem;
 }
 
-.small{
-    margin-top:10px;
-    font-size:2rem;
-    color:white;
+@media(max-width:768px){
+h1{font-size:2rem}
+.slide{height:380px}
+.message{font-size:1rem}
 }
 </style>
 </head>
 <body>
 
-<div id="proposalPage">
-    <h1>Will You Be My freind Ms. Hitakshi? ❤️</h1>
-    <p>You have only one correct answer 😄</p>
+<audio id="bgMusic" loop>
+<!-- CHANGE THIS FILE NAME -->
+<source src="bgm.mp3" type="audio/mpeg">
+</audio>
 
-    <div class="buttons">
-        <button id="yesBtn">YES ❤️</button>
-        <button id="noBtn">NO 😢</button>
-    </div>
+<button class="musicBtn" id="musicBtn">🎵 Play Music</button>
+
+<div id="proposalPage">
+<div class="card">
+<h1>Will You Be My Friend Ms. Hitakshi? ❤️</h1>
+<p>You have only one correct answer 😄</p>
+<div class="buttons">
+<button id="yesBtn">YES ❤️</button>
+<button id="noBtn">NO 😢</button>
+</div>
+</div>
 </div>
 
 <div id="yesPage">
-    <!-- Replace photo.jpg with your uploaded image -->
-    <img src="she.png" alt="Special Photo">
 
-    <div class="small">❤️ I KNEW YOU WOULD ACCEPT IT ❤️</div>
+<div class="slider-container">
+<button class="arrow left" onclick="prevSlide()">❮</button>
 
-    <div class="message">
-        <br>
+<!-- CHANGE PHOTO NAMES BELOW -->
+<img id="slideImage" class="slide" src="photo1.jpg">
+
+<button class="arrow right" onclick="nextSlide()">❯</button>
+</div>
+
+<div class="small">❤️ I KNEW YOU WOULD ACCEPT IT ❤️</div>
+
+<div class="message">
+<br>
         "I love you more than words can ever express ❤️❤️❤️.
         I know I'm much younger than you, and right now this may sound like a dream,
         but deep in my heart I wish that when I reach the age of marriage,
         the person standing beside me as my bride would be you. But I don't think anyone will be accepting it as of age gap, so can we be just freinds?
         Until then, I'll cherish every moment, every memory,
         and every feeling I have for you. I am coming to Jahanghirpuri on Thursday night. If you want we can meet on Friday or Saturday. Just tell Yashi Didi and tell your reaciton.😉❤️
-        "
-        <br>
-        - By Jagrav
-    </div>
+        " -By Jagrav
+</div>
+
 </div>
 
 <script>
+const photos=[
+"she.png",
+"she 2.png",
+"she 3.png",
+"she 4.png",
+"she 5.png",
+"she.png"
+];
 
-// Floating Hearts
-function createHeart(){
-    const heart=document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML="❤️";
+let current=0;
+const img=document.getElementById("slideImage");
 
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.fontSize=(Math.random()*20+15)+"px";
-    heart.style.animationDuration=(Math.random()*4+4)+"s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
-        heart.remove();
-    },8000);
+function showSlide(i){
+current=(i+photos.length)%photos.length;
+img.src=photos[current];
 }
 
+function nextSlide(){showSlide(current+1);}
+function prevSlide(){showSlide(current-1);}
+
+setInterval(()=>nextSlide(),3000);
+
+function createHeart(){
+const h=document.createElement("div");
+h.classList.add("heart");
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(Math.random()*20+15)+"px";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),8000);
+}
 setInterval(createHeart,250);
 
-// YES Button
-document.getElementById("yesBtn").addEventListener("click",()=>{
-    document.getElementById("proposalPage").style.display="none";
-    document.getElementById("yesPage").style.display="flex";
-});
+function confetti(){
+for(let i=0;i<100;i++){
+let e=document.createElement("div");
+e.innerHTML="❤️";
+e.style.position="fixed";
+e.style.left=Math.random()*100+"vw";
+e.style.top="-20px";
+document.body.appendChild(e);
+e.animate([
+{transform:"translateY(0)"},
+{transform:"translateY(100vh)"}
+],{duration:3000+Math.random()*2000});
+setTimeout(()=>e.remove(),5000);
+}
+}
 
-// NO Button Runs Away
+document.getElementById("yesBtn").onclick=()=>{
+confetti();
+document.getElementById("proposalPage").style.display="none";
+document.getElementById("yesPage").style.display="flex";
+};
+
 const noBtn=document.getElementById("noBtn");
-
 noBtn.addEventListener("mouseover",()=>{
-    const x=Math.random()*(window.innerWidth-150);
-    const y=Math.random()*(window.innerHeight-100);
-
-    noBtn.style.position="absolute";
-    noBtn.style.left=x+"px";
-    noBtn.style.top=y+"px";
+const x=Math.random()*(window.innerWidth-150);
+const y=Math.random()*(window.innerHeight-100);
+noBtn.style.position="absolute";
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
 });
 
+document.getElementById("musicBtn").onclick=()=>{
+const music=document.getElementById("bgMusic");
+if(music.paused){
+music.play();
+musicBtn.innerHTML="⏸ Pause Music";
+}else{
+music.pause();
+musicBtn.innerHTML="🎵 Play Music";
+}
+};
 </script>
 
 </body>
